@@ -1,0 +1,54 @@
+/* Import Zalando Sans Expanded - must be first with all weights */
+@import url('https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 255, 255, 255;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+/* Apply Zalando Sans Expanded to all headings - Force with !important and multiple selectors */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
+[class*="heading"],
+.font-heading {
+  font-family: 'Zalando Sans Expanded', system-ui, sans-serif !important;
+}
+
+/* Extra specificity for all possible heading combinations */
+html h1, html h2, html h3, html h4, html h5, html h6,
+body h1, body h2, body h3, body h4, body h5, body h6,
+html body h1, html body h2, html body h3, html body h4, html body h5, html body h6 {
+  font-family: 'Zalando Sans Expanded', system-ui, sans-serif !important;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
