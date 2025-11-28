@@ -1,10 +1,16 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Button from './ui/Button'
+import ImageSlider from './ui/ImageSlider'
+import Lightbox from './ui/Lightbox'
 
 export default function FeaturedProject() {
+  const [lightboxOpen, setLightboxOpen] = useState(false)
+  const [lightboxIndex, setLightboxIndex] = useState(0)
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)
     if (element) {
@@ -12,14 +18,47 @@ export default function FeaturedProject() {
     }
   }
 
-  // Gallery images - using renders from 0-Renders folder
+  // Featured images for the slider
+  const featuredImages = [
+    '/images/renders/Render_01_Casas.jpg',
+    '/images/renders/Render_02_Casas.jpg',
+    '/images/renders/04---Piscina-Principal.jpg',
+  ]
+
+  // All gallery images (featured + rest)
   const galleryImages = [
     '/images/renders/Render_01_Casas.jpg',
     '/images/renders/Render_02_Casas.jpg',
+    '/images/renders/04---Piscina-Principal.jpg',
     '/images/renders/Render_03_Casas.jpg',
     '/images/renders/Render_04_Casas.jpg',
     '/images/renders/Render_05_Casas.jpg',
+    '/images/renders/05---Piscina-Posterior.jpg',
+    '/images/renders/06---Piscina-Lateral.jpg',
+    '/images/renders/07---Piscina-Corte.jpg',
+    '/images/renders/Render_01_Casa-Sola.jpg',
+    '/images/renders/Render_02_Casa-Sola.jpg',
+    '/images/renders/Baño_Principal.01.jpg',
+    '/images/renders/Baño_Principal.02.jpg',
+    '/images/renders/Baño_Secundario.01.jpg',
+    '/images/renders/Baño_Secundario.02.jpg',
+    '/images/renders/Baño_Secundario.03.jpg',
+    '/images/renders/Baño_Visitasl.01.jpg',
+    '/images/renders/R1.jpg',
+    '/images/renders/R3.jpg',
+    '/images/renders/R4.jpg',
+    '/images/renders/R5.jpg',
+    '/images/renders/R9.jpg',
   ]
+
+  const openLightbox = (index: number) => {
+    setLightboxIndex(index)
+    setLightboxOpen(true)
+  }
+
+  const closeLightbox = () => {
+    setLightboxOpen(false)
+  }
 
   return (
     <section
@@ -74,16 +113,8 @@ export default function FeaturedProject() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative h-96 rounded-lg overflow-hidden shadow-2xl"
           >
-            <div
-              className="w-full h-full"
-              style={{
-                backgroundImage: "url('/images/renders/Render_01_Casas.jpg')",
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-              }}
-            ></div>
+            <ImageSlider images={featuredImages} autoPlay={true} />
           </motion.div>
 
           <motion.div
@@ -152,22 +183,62 @@ export default function FeaturedProject() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative h-48 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow cursor-pointer group"
+                className="relative h-48 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer group"
+                onClick={() => openLightbox(index)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    openLightbox(index)
+                  }
+                }}
+                aria-label={`View image ${index + 1}`}
               >
-                <div
-                  className="w-full h-full group-hover:scale-110 transition-transform duration-300"
-                  style={{
-                    backgroundImage: `url('${image}')`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                  }}
-                ></div>
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors"></div>
+                <Image
+                  src={image}
+                  alt={`Gallery image ${index + 1}`}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-300"
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileHover={{ opacity: 1, scale: 1 }}
+                    className="text-white"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-10 w-10"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={1.5}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"
+                      />
+                    </svg>
+                  </motion.div>
+                </div>
               </motion.div>
             ))}
           </div>
         </motion.div>
       </div>
+
+      {/* Lightbox */}
+      <Lightbox
+        images={galleryImages}
+        currentIndex={lightboxIndex}
+        isOpen={lightboxOpen}
+        onClose={closeLightbox}
+        onNavigate={setLightboxIndex}
+      />
     </section>
   )
 }
