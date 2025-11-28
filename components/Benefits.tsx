@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import Card from './ui/Card'
 
 const benefits = [
@@ -8,25 +9,25 @@ const benefits = [
     title: '20+ Years Experience',
     description:
       'Two decades of expertise in Costa Rica construction and development.',
-    icon: '⭐',
+    icon: '/images/icons/20-years-experience.svg',
   },
   {
     title: 'English-Speaking Team',
     description:
       'Seamless communication for international clients and investors.',
-    icon: '🌐',
+    icon: '/images/icons/english-speaking-team.svg',
   },
   {
     title: 'Transparent Communication',
     description:
       'Regular updates and clear reporting throughout your project.',
-    icon: '💬',
+    icon: '/images/icons/transparent-comunication.svg',
   },
   {
     title: 'On-Time, On-Budget Delivery',
     description:
       'Strong organization and cost control to meet your expectations.',
-    icon: '✅',
+    icon: '/images/icons/on-time-on-budget-delivery.svg',
   },
 ]
 
@@ -70,7 +71,15 @@ export default function Benefits() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               <Card className="h-full text-center hover:border-gold hover:border-2 transition-all">
-                <div className="text-5xl mb-4">{benefit.icon}</div>
+                <div className="mb-4 flex justify-center">
+                  <Image
+                    src={benefit.icon}
+                    alt={benefit.title}
+                    width={80}
+                    height={80}
+                    className="w-20 h-20"
+                  />
+                </div>
                 <h3 className="text-xl font-bold text-black mb-3 font-heading">
                   {benefit.title}
                 </h3>

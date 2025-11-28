@@ -1,5 +1,5 @@
 import './globals.css'
-import { metadata as siteMetadata } from './metadata'
+import { metadata as siteMetadata, viewport as siteViewport } from './metadata'
 import { Montserrat } from 'next/font/google'
 import FontLoader from '@/components/FontLoader'
 
@@ -11,6 +11,7 @@ const montserrat = Montserrat({
 })
 
 export const metadata = siteMetadata
+export const viewport = siteViewport
 
 export default function RootLayout({
   children,

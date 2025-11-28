@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import Card from './ui/Card'
 
 const services = [
@@ -8,37 +9,37 @@ const services = [
     title: 'Complete Build Solutions',
     description:
       'End-to-end construction services from concept to completion, ensuring seamless execution.',
-    icon: '🏗️',
+    icon: '/images/icons/complete-build-solutions.svg',
   },
   {
     title: 'Architectural Coordination',
     description:
       'Working closely with trusted architects to bring your vision to life.',
-    icon: '📐',
+    icon: '/images/icons/architectural-coordintation.svg',
   },
   {
     title: 'Full Project Management',
     description:
       'Daily supervision and comprehensive project management for peace of mind.',
-    icon: '📊',
+    icon: '/images/icons/full-project-management.svg',
   },
   {
     title: 'Permits & Legal Requirements',
     description:
       'Navigating permits, municipal approvals, and all legal requirements.',
-    icon: '📋',
+    icon: '/images/icons/permits-and-legal-requirements.svg',
   },
   {
     title: 'Remodeling & Additions',
     description:
       'Transforming existing properties with expert remodeling and additions.',
-    icon: '🔨',
+    icon: '/images/icons/remodeling-and-additions.svg',
   },
   {
     title: 'Real Estate Services',
     description:
       'Property sourcing, sales support, and investment guidance in Costa Rica.',
-    icon: '🏠',
+    icon: '/images/icons/real-estate-services.svg',
   },
 ]
 
@@ -86,7 +87,15 @@ export default function Services() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               <Card className="h-full hover:border-gold hover:border-2 transition-all">
-                <div className="text-4xl mb-4">{service.icon}</div>
+                <div className="mb-4 flex justify-center">
+                  <Image
+                    src={service.icon}
+                    alt={service.title}
+                    width={64}
+                    height={64}
+                    className="w-16 h-16"
+                  />
+                </div>
                 <h3 className="text-xl font-bold text-black mb-3 font-heading">
                   {service.title}
                 </h3>

@@ -46,7 +46,7 @@ export default function ServiceAreas() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {areas.map((area, index) => (
             <motion.div
               key={index}
@@ -54,9 +54,9 @@ export default function ServiceAreas() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-gray-50 rounded-lg p-6 text-center hover:bg-gold hover:text-black transition-all cursor-pointer border-2 border-transparent hover:border-gold"
+              className="bg-gray-50 rounded-lg p-8 hover:bg-gold hover:text-black transition-all cursor-pointer border-2 border-transparent hover:border-gold min-h-[120px] flex items-center justify-center"
             >
-              <div className="text-xl font-semibold">{area}</div>
+              <div className="text-xl font-semibold text-center leading-tight">{area}</div>
             </motion.div>
           ))}
         </div>
