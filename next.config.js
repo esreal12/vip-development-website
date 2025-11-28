@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // output: 'export', // Comentado para desarrollo - descomentar solo para producción estática
+  output: 'export', // Static export para Siteground
   images: {
     unoptimized: true,
   },

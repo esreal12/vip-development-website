@@ -14,7 +14,7 @@ export default function Footer() {
   return (
     <footer className="bg-black text-white py-12">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
+        <div className="grid md:grid-cols-2 gap-12 mb-8">
           <div>
             <div className="mb-4">
               <Image
@@ -36,7 +36,7 @@ export default function Footer() {
 
           <div>
             <h4 className="text-lg font-semibold mb-4 text-gold">Quick Links</h4>
-            <ul className="space-y-2">
+            <ul className="flex flex-wrap gap-4 md:gap-6">
               <li>
                 <button
                   onClick={() => scrollToSection('about')}
@@ -69,20 +69,6 @@ export default function Footer() {
                   Contact
                 </button>
               </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-lg font-semibold mb-4 text-gold">
-              Service Areas
-            </h4>
-            <ul className="space-y-2 text-gray-400 text-sm">
-              <li>Manuel Antonio</li>
-              <li>Quepos</li>
-              <li>Dominical</li>
-              <li>Uvita</li>
-              <li>Jaco</li>
-              <li>Herradura</li>
             </ul>
           </div>
         </div>

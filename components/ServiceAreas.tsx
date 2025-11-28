@@ -54,7 +54,7 @@ export default function ServiceAreas() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-gray-50 rounded-lg p-8 hover:bg-gold hover:text-black transition-all cursor-pointer border-2 border-transparent hover:border-gold min-h-[120px] flex items-center justify-center"
+              className="bg-gray-50 rounded-lg p-8 hover:bg-gold hover:text-black transition-all border-2 border-transparent hover:border-gold min-h-[120px] flex items-center justify-center"
             >
               <div className="text-xl font-semibold text-center leading-tight">{area}</div>
             </motion.div>
