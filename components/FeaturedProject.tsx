@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import Button from './ui/Button'
 
 export default function FeaturedProject() {
@@ -50,8 +51,17 @@ export default function FeaturedProject() {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-heading">
             Featured Project
           </h2>
-          <div className="text-gold text-3xl font-bold mb-2">
-            Villas Tres Hermanas
+          <div className="mb-4 flex justify-center">
+            <Image
+              src="/images/logos/villas-tres-hermanas-logotype.jpg"
+              alt="Villas Tres Hermanas Logo"
+              width={700}
+              height={200}
+              className="h-auto"
+              style={{
+                borderRadius: '50px'
+              }}
+            />
           </div>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             A showcase of luxury living in Costa Rica

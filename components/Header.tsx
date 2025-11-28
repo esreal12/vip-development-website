@@ -26,23 +26,27 @@ export default function Header() {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? 'shadow-xl backdrop-blur-md' : ''
+      }`}
       style={{
-        background: 'rgba(17, 17, 17, 0.9)',
+        background: isScrolled ? 'rgba(17, 17, 17, 1.0)' : 'rgba(17, 17, 17, 0.9)',
       }}
     >
-      <nav className="container mx-auto px-4 py-2 flex items-center justify-between">
+      <nav className={`container mx-auto px-4 flex items-center justify-between transition-all duration-300 ${
+        isScrolled ? 'py-1' : 'py-2'
+      }`}>
         <div className="flex items-center">
           <button
             onClick={() => scrollToSection('hero')}
-            className="flex items-center"
+            className="flex items-center transition-all duration-300"
           >
             <Image
               src="/images/logos/vip-development-logo.svg"
               alt="VIP Development Logo"
-              width={150}
-              height={60}
-              className="h-auto"
+              width={isScrolled ? 120 : 150}
+              height={isScrolled ? 48 : 60}
+              className="h-auto transition-all duration-300"
               priority
             />
           </button>

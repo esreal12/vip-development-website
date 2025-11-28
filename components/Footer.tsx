@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 export default function Footer() {
   const scrollToSection = (id: string) => {
@@ -15,10 +16,15 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h3 className="text-2xl font-bold mb-4">
-              <span className="text-white">VIP</span>
-              <span className="text-gold">DEVELOPMENT</span>
-            </h3>
+            <div className="mb-4">
+              <Image
+                src="/images/logos/vip-development-logo.svg"
+                alt="VIP Development Logo"
+                width={150}
+                height={60}
+                className="h-auto"
+              />
+            </div>
             <p className="text-gray-400 mb-4">
               Pura Vida Construction - Driven by Experience. Defined by Quality.
             </p>
