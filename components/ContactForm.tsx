@@ -59,31 +59,20 @@ export default function ContactForm() {
       ></div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-12"
-        >
+        <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-heading">
             Get In Touch
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             Ready to start your project? Contact us today for a consultation.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-2xl mx-auto"
-        >
+        <div className="max-w-2xl mx-auto">
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="bg-white/10 backdrop-blur-sm rounded-lg p-8 border border-white/20"
+            suppressHydrationWarning
           >
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               <div>
@@ -197,14 +186,14 @@ export default function ContactForm() {
             </div>
 
             {submitStatus === 'success' && (
-              <div className="mb-6 p-4 bg-green-500/20 border border-green-500 rounded text-green-300">
+              <div className="mb-6 p-4 bg-green-500/20 border border-green-500 rounded text-green-300" suppressHydrationWarning>
                 Thank you! Your message has been sent. We'll get back to you
                 soon.
               </div>
             )}
 
             {submitStatus === 'error' && (
-              <div className="mb-6 p-4 bg-red-500/20 border border-red-500 rounded text-red-300">
+              <div className="mb-6 p-4 bg-red-500/20 border border-red-500 rounded text-red-300" suppressHydrationWarning>
                 There was an error sending your message. Please try again or
                 contact us directly.
               </div>
@@ -221,7 +210,7 @@ export default function ContactForm() {
               </Button>
             </div>
           </form>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

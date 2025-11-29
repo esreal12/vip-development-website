@@ -17,25 +17,39 @@ export const sendEmail = async (data: ContactFormData): Promise<boolean> => {
 
     if (!serviceId || !templateId || !publicKey) {
       console.error('EmailJS configuration is missing')
+      console.error('Service ID:', serviceId ? '✓' : '✗')
+      console.error('Template ID:', templateId ? '✓' : '✗')
+      console.error('Public Key:', publicKey ? '✓' : '✗')
       return false
     }
+
+    const templateParams = {
+      from_name: data.name || '',
+      from_email: data.email || '',
+      phone: data.phone || '',
+      project_type: data.projectType || '',
+      message: data.message || '',
+    }
+
+    console.log('Sending email with params:', templateParams)
 
     const result = await emailjs.send(
       serviceId,
       templateId,
-      {
-        from_name: data.name,
-        from_email: data.email,
-        phone: data.phone,
-        project_type: data.projectType,
-        message: data.message,
-      },
+      templateParams,
       publicKey
     )
 
+    console.log('EmailJS response:', result)
     return result.status === 200
-  } catch (error) {
+  } catch (error: any) {
     console.error('EmailJS error:', error)
+    if (error.text) {
+      console.error('Error details:', error.text)
+    }
+    if (error.status) {
+      console.error('Error status:', error.status)
+    }
     return false
   }
 }
