@@ -80,11 +80,10 @@ export default function Header() {
             onClick={() => scrollToSection('contact')}
             className="bg-gold text-black px-6 py-2 rounded-sm font-semibold hover:bg-gold-light transition-colors"
           >
-            Get Started
+            Send a Message
           </button>
         </div>
       </nav>
     </motion.header>
   )
 }
-

@@ -79,7 +79,7 @@ export default function Hero() {
               onClick={() => scrollToSection('contact')}
               variant="primary"
             >
-              Get Started
+              Send a Message
             </Button>
             <Button
               onClick={() => scrollToSection('projects')}
@@ -106,4 +106,3 @@ export default function Hero() {
     </section>
   )
 }
-

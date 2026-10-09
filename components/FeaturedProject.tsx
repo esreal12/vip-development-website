@@ -10,7 +10,10 @@ import { galleryImages, primaryImages } from '@/lib/villasTresHermanas'
 export default function FeaturedProject() {
   const [lightboxIndex, setLightboxIndex] = useState(0)
   const [lightboxOpen, setLightboxOpen] = useState(false)
-  const requestInfo = () => document.getElementById('villas-enquiry')?.scrollIntoView({ behavior: 'smooth' })
+  const requestInfo = () => {
+    document.getElementById('villas-enquiry')?.scrollIntoView({ behavior: 'smooth' })
+    window.setTimeout(() => document.getElementById('villas-name')?.focus({ preventScroll: true }), 350)
+  }
   return <section id="projects" className="relative py-24 overflow-hidden" style={{ background: 'linear-gradient(135deg, #1b1b1b 0%, #2c2c2c 100%)' }}>
     <div className="container mx-auto px-4 relative z-10">
       <header className="text-center max-w-4xl mx-auto mb-16"><p className="text-gold font-semibold tracking-widest">FEATURED PROJECT</p><Image src="/images/projects/villas-tres-hermanas/ra-logotipo-r-letras-negro.png" alt="Villas Tres Hermanas" width={700} height={350} className="bg-white rounded-lg p-5 mx-auto my-5" priority /><h2 className="text-4xl md:text-6xl font-bold text-white">Exceptional Homes. Extraordinary Setting. Built Without Compromise.</h2><p className="text-lg text-gray-300 mt-6">Villas Tres Hermanas is an exclusive collection of three residences where contemporary design, breathtaking surroundings and uncompromising construction come together.</p></header>
