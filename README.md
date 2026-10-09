@@ -100,6 +100,26 @@ NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
 NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
 ```
 
+The EmailJS template must use fixed recipients, not a frontend template variable:
+
+```text
+To: info@vipdevelopmentcr.com, kurt@hiddenbayrealty.com
+Subject: {{subject}}
+Body: {{from_name}}, {{from_email}}, {{phone}}, {{project_type}}, {{message}}, {{lead_source}}
+```
+
+The general form sends `General Contact Form`; the Villas Tres Hermanas form sends `Featured Project — Villas Tres Hermanas`.
+
+### Villas Tres Hermanas assets
+
+The client source renders stay outside the repository. Generate the web assets after replacing source renders:
+
+```bash
+npm run optimize:villas-images
+```
+
+This creates optimized WebP images and the project logo under `public/images/projects/villas-tres-hermanas/`.
+
 ### Customization
 
 - **Colors**: Edit `tailwind.config.js` to modify the color palette
@@ -114,6 +134,12 @@ NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
 2. Upload the contents of the `/out` directory to your SiteGround `public_html` folder
 3. Ensure all files and folders are uploaded correctly
 
+For a safe SSH deployment, compare first and only then remove `-n` after approval:
+
+```bash
+rsync -nrc --delete -e 'ssh -o BatchMode=yes -o UseKeychain=yes' out/ vipdevelopment:/home/customer/www/vipdevelopmentcr.com/public_html/
+```
+
 ## Notes
 
 - All content is in English
@@ -124,4 +150,3 @@ NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
 ## License
 
 Private project for VIP Development.
-
