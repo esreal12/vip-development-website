@@ -23,9 +23,9 @@ export default function Home() {
       <main className="min-h-screen">
         <Header />
         <Hero />
+        <FeaturedProject />
         <About />
         <Services />
-        <FeaturedProject />
         <Benefits />
         <Process />
         <ServiceAreas />
@@ -35,4 +35,3 @@ export default function Home() {
     </>
   )
 }
-
