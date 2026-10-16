@@ -17,7 +17,7 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{
         backgroundImage:
-          "url('/images/backgrounds/minimalist-luxury/modern-minimalist-villa-with-infinity-pool-overlooking-ocean.jpg')",
+          "url('/images/projects/villas-tres-hermanas/casa-a-render-frontal.webp')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',

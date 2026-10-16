@@ -31,7 +31,7 @@ export default function About() {
               className="relative h-96 rounded-lg overflow-hidden shadow-2xl"
               style={{
                 backgroundImage:
-                  "url('/images/backgrounds/minimalist-luxury/sprawling-unfurnished-living-room-with-ocean-views-luxurious-home.jpg')",
+                  "url('/images/projects/villas-tres-hermanas/render-rerraza-piscina-01.webp')",
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
               }}
