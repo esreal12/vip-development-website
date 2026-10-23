@@ -4,7 +4,12 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 
-export default function Header() {
+type HeaderProps = {
+  minimal?: boolean
+  contactTarget?: string
+}
+
+export default function Header({ minimal = false, contactTarget = 'contact' }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
@@ -52,32 +57,34 @@ export default function Header() {
           </button>
         </div>
         <div className="hidden md:flex items-center space-x-8">
+          {!minimal && <>
+            <button
+              onClick={() => scrollToSection('about')}
+              className="text-white hover:text-gold transition-colors font-medium"
+            >
+              About
+            </button>
+            <button
+              onClick={() => scrollToSection('services')}
+              className="text-white hover:text-gold transition-colors font-medium"
+            >
+              Services
+            </button>
+            <button
+              onClick={() => scrollToSection('projects')}
+              className="text-white hover:text-gold transition-colors font-medium"
+            >
+              Projects
+            </button>
+            <button
+              onClick={() => scrollToSection('contact')}
+              className="text-white hover:text-gold transition-colors font-medium"
+            >
+              Contact
+            </button>
+          </>}
           <button
-            onClick={() => scrollToSection('about')}
-            className="text-white hover:text-gold transition-colors font-medium"
-          >
-            About
-          </button>
-          <button
-            onClick={() => scrollToSection('services')}
-            className="text-white hover:text-gold transition-colors font-medium"
-          >
-            Services
-          </button>
-          <button
-            onClick={() => scrollToSection('projects')}
-            className="text-white hover:text-gold transition-colors font-medium"
-          >
-            Projects
-          </button>
-          <button
-            onClick={() => scrollToSection('contact')}
-            className="text-white hover:text-gold transition-colors font-medium"
-          >
-            Contact
-          </button>
-          <button
-            onClick={() => scrollToSection('contact')}
+            onClick={() => scrollToSection(contactTarget)}
             className="bg-gold text-black px-6 py-2 rounded-sm font-semibold hover:bg-gold-light transition-colors"
           >
             Send a Message
