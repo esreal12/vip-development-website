@@ -16,10 +16,10 @@ export default function TemporaryVillasLanding() {
             <h1 className="font-heading text-balance text-4xl font-bold leading-tight md:text-6xl">Interested in Villas Tres Hermanas?</h1>
           </div>
 
-          <div className="mt-12 grid gap-5 md:grid-cols-2">
-            {primaryImages.map((image) => (
-              <div key={image.src} className="relative h-72 overflow-hidden rounded-lg border border-white/10 md:h-[30rem]">
-                <Image src={image.src} alt={image.alt} fill priority className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
+          <div className="mx-auto mt-12 max-w-4xl">
+            {primaryImages.slice(1).map((image) => (
+              <div key={image.src} className="relative h-80 overflow-hidden rounded-lg border border-white/10 md:h-[34rem]">
+                <Image src={image.src} alt={image.alt} fill priority className="object-cover" sizes="(max-width: 1024px) 100vw, 64rem" />
               </div>
             ))}
           </div>

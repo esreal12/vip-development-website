@@ -15,7 +15,7 @@ it('shows only the Villas Tres Hermanas contact landing content', () => {
   expect(screen.getByAltText('VIP Development Logo')).toBeInTheDocument()
   expect(screen.getByRole('button', { name: 'Send a Message' })).toBeInTheDocument()
   expect(screen.getByRole('heading', { name: 'Interested in Villas Tres Hermanas?' })).toBeInTheDocument()
-  expect(screen.getByAltText('Villas Tres Hermanas exterior overlooking the Central Pacific')).toBeInTheDocument()
+  expect(screen.queryByAltText('Villas Tres Hermanas exterior overlooking the Central Pacific')).not.toBeInTheDocument()
   expect(screen.getByAltText('Contemporary Villas Tres Hermanas architecture')).toBeInTheDocument()
   expect(screen.getByTestId('villas-lead-form')).toHaveTextContent('Featured Project — Villas Tres Hermanas')
   expect(screen.queryByText(/Contact us for residence information/i)).not.toBeInTheDocument()
